@@ -56,7 +56,7 @@ def run_spark_job(spark):
 
     # count the number of original crime type
     agg_df = distinct_table.dropna() \
-            .select('original_crime_type_name').groupgy('original_crime_type_name').agg('original_crime_type_name' :'count') \
+            .select('original_crime_type_name').groupby('original_crime_type_name').agg({'original_crime_type_name' :'count'}) \
             .orderBy('count(original_crime_type_name)', ascending = False)
 
     # TODO Q1. Submit a screen shot of a batch ingestion of the aggregation
